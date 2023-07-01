@@ -1,2 +1,5 @@
-# Practica-5-DDS-2023
-Resolución de la quinta Practica propuestas en la cursada de la Materia de Diseño de Sistemas UTN FRBA
+# dds copiame
+
+Práctica basada en el final tomado el 22/12/2018
+
+Doc: https://docs.google.com/document/d/1PpMOPoTSsYCDCb0Tb_WQ46C4SvFjfigr95hCVH_Ftlk/edit?usp=sharing
