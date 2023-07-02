@@ -96,25 +96,30 @@ public class AnalisisDeCopia {
 	public void addEvaluador(EvaluadorDeCopia eval) {
 		this.evaluadores.add(eval);
 	}
-	
+
+	public void crearPares() {
+// Genero todos los pares de documentos Posibles
+		this.pares = Generator.combination(
+						this.lote.getDocumentos())
+				.simple(2)
+				.stream()
+				.map(
+						t-> new ParDocumentos(
+								t.get(0),t.get(1)) )
+				.collect(Collectors.toList());
+	}
+	//---------------------------
 	public void procesar() {
-		// Genero todos los pares de documentos Posibles
-		this.pares = Generator.combination(this.lote.getDocumentos())
-	       .simple(2)
-	       .stream()
-	       .map(t-> new ParDocumentos(t.get(0),t.get(1)) ) 
-	       .collect(Collectors.toList());
-		
-		// Armo el resultado procesando cada par
+// Armo el resultado procesando cada par
 		this.rl = new ResultadoLote();
 		rl.setFechaInicio(LocalDateTime.now());
-		for (EvaluadorDeCopia evaluador : this.evaluadores) {
+		for (EvaluadorDeCopia evaluador :
+				this.evaluadores) {
 			evaluador.procesar(pares);
-			
 		}
-		
 	}
-	
+
+
 	public ResultadoLote resultado() {
 		for (ParDocumentos parDocumentos : pares) {
 			if(parDocumentos.esCopia(this.umbral)) {

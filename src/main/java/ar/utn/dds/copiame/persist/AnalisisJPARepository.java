@@ -1,6 +1,7 @@
 package ar.utn.dds.copiame.persist;
 
 import java.util.Collection;
+import java.util.UUID;
 
 import javax.persistence.EntityManager;
 import javax.persistence.criteria.CriteriaBuilder;
@@ -31,6 +32,8 @@ public class AnalisisJPARepository implements AnalsisRepository {
 	
 	@Override
 	public void save(AnalisisDeCopia analisis) {
+		String key = UUID.randomUUID().toString().substring(0, 5);
+		analisis.setId(key);
 		this.entityManager.persist(analisis);
 		
 	}

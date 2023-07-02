@@ -1,3 +1,5 @@
+package ar.utn.dds.copiame.apps;
+
 import com.rabbitmq.client.*;
 
 import javax.persistence.EntityManagerFactory;
